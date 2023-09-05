@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Генератор паролей</title>
+    <script>
+        function generatePassword() {
+            // Строка символов, из которых будет генерироваться пароль
+            var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
 
+            // Длина пароля
+            var passwordLength = 12;
+
+            var password = "";
+            for (var i = 0; i < passwordLength; i++) {
+                // Генерируем случайный индекс символа из charset
+                var randomIndex = Math.floor(Math.random() * charset.length);
+                
+                // Добавляем символ к паролю
+                password += charset[randomIndex];
+            }
+
+            // Выводим сгенерированный пароль на страницу
+            document.getElementById("password").value = password;
+        }
+    </script>
+</head>
+<body>
+    <h1>Генератор паролей</h1>
+    <button onclick="generatePassword()">Сгенерировать пароль</button>
+    <br><br>
+    <input type="text" id="password" readonly>
+</body>
+</html>
